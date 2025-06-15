@@ -16,6 +16,7 @@ namespace StopwatchApp.Presentation.ViewModels
         public StopwatchViewModel(IStopwatchService svc)
         {
             _svc = svc;
+            // Subscribe to ElapsedChanged events, dispatching updates to the UI thread
             _svc.ElapsedChanged += (_, span) => Application.Current.Dispatcher.InvokeAsync(() => Elapsed = span, System.Windows.Threading.DispatcherPriority.Normal);
         }
 

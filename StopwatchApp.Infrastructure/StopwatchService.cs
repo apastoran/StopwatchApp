@@ -2,6 +2,10 @@ using StopwatchApp.Core;
 using System.Diagnostics;
 namespace StopwatchApp.Infrastructure
 {
+    /// <summary>
+    /// Implementation of <see cref="IStopwatchService"/>,
+    /// using <see cref="Stopwatch"/> for accuracy and <see cref="System.Timers.Timer"/> for updates.
+    /// </summary>
     public class StopwatchService : IStopwatchService, IDisposable
     {
         private readonly Stopwatch _stopwatch = new();

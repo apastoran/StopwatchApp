@@ -5,6 +5,9 @@ using System.Windows;
 
 namespace StopwatchApp.Presentation.Composition
 {
+    /// <summary>
+    /// Centralized place to compose services. Demonstrates manual DI.
+    /// </summary>
     public static class CompositionRoot
     {
         public static Window BuildStopwatchView()
