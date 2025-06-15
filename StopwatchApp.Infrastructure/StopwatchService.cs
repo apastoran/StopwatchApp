@@ -19,12 +19,28 @@ namespace StopwatchApp.Infrastructure
         public event EventHandler<TimeSpan>? ElapsedChanged;
         public void Start()
         {
+            if (State == StopwatchState.Running) return;
             _stopwatch.Start();
             _timer.Start();
             State = StopwatchState.Running;
+            ElapsedChanged?.Invoke(this, _stopwatch.Elapsed);
         }
-        public void Pause() { }
-        public void Stop() { }
+        public void Pause()
+        {
+            if (State != StopwatchState.Running) return;
+            _stopwatch.Stop();
+            _timer.Stop();
+            State = StopwatchState.Paused;
+            ElapsedChanged?.Invoke(this, _stopwatch.Elapsed);
+        }
+        public void Stop()
+        {
+            _stopwatch.Stop();
+            _stopwatch.Reset();
+            _timer.Stop();
+            State = StopwatchState.Stopped;
+            ElapsedChanged?.Invoke(this, _stopwatch.Elapsed);
+        }
 
     }
 }

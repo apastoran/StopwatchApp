@@ -24,12 +24,22 @@ namespace StopwatchApp.Presentation.ViewModels
         {
             OnPropertyChanged(nameof(Time));
             StartCommand.NotifyCanExecuteChanged();
+            PauseCommand.NotifyCanExecuteChanged();
+            StopCommand.NotifyCanExecuteChanged();
         }
 
 
         [RelayCommand(CanExecute = nameof(CanStart))]
         private void Start() => _svc.Start();
         private bool CanStart() => _svc.State != StopwatchState.Running;
+
+        [RelayCommand(CanExecute = nameof(CanPause))]
+        private void Pause() => _svc.Pause();
+        private bool CanPause() => _svc.State == StopwatchState.Running;
+
+        [RelayCommand(CanExecute = nameof(CanStop))]
+        private void Stop() => _svc.Stop();
+        private bool CanStop() => _svc.State != StopwatchState.Stopped;
 
     }
 }

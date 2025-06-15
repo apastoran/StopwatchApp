@@ -11,8 +11,8 @@
             <TextBlock Text="{Binding Time}" TextWrapping="Wrap" FontSize="48" HorizontalAlignment="Center"/>
             <StackPanel Orientation="Horizontal" Margin="0,45,0,0" HorizontalAlignment="Center">
                 <Button Content="Start" Command="{Binding StartCommand}"  Margin="5" Width="100" Height="50"/>
-                <Button Content="Pause" Margin="5" Width="100" Height="50"/>
-                <Button Content="Stop" Margin="5" Width="100" Height="50"/>
+                <Button Content="Pause" Command="{Binding PauseCommand}" Margin="5" Width="100" Height="50"/>
+                <Button Content="Stop" Command="{Binding StopCommand}" Margin="5" Width="100" Height="50"/>
             </StackPanel>
         </StackPanel>
     </Grid>
