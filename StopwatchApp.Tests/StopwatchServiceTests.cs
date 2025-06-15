@@ -1,7 +1,7 @@
-﻿using System;
-using System.Threading;
-using StopwatchApp.Core;
+﻿using StopwatchApp.Core;
 using StopwatchApp.Infrastructure;
+using System;
+using System.Threading;
 using Xunit;
 
 namespace StopwatchApp.Tests;

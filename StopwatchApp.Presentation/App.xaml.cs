@@ -1,5 +1,4 @@
-﻿using StopwatchApp.Infrastructure;
-using StopwatchApp.Presentation.Composition;
+﻿using StopwatchApp.Presentation.Composition;
 using System.Windows;
 
 namespace StopwatchApp
