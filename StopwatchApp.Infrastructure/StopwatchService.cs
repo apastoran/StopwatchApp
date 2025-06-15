@@ -2,7 +2,7 @@ using StopwatchApp.Core;
 using System.Diagnostics;
 namespace StopwatchApp.Infrastructure
 {
-    public class StopwatchService : IStopwatchService
+    public class StopwatchService : IStopwatchService, IDisposable
     {
         private readonly Stopwatch _stopwatch = new();
         private readonly System.Timers.Timer _timer;
@@ -41,6 +41,8 @@ namespace StopwatchApp.Infrastructure
             State = StopwatchState.Stopped;
             ElapsedChanged?.Invoke(this, _stopwatch.Elapsed);
         }
+
+        public void Dispose() => _timer.Dispose();
 
     }
 }

@@ -17,11 +17,17 @@ namespace StopwatchApp
 
             var vm = new StopwatchViewModel(_service);
 
-            var window = new Presentation.Views.MainWindow
+            var window = new Presentation.Views.StopwatchView
             {
                 DataContext = vm
             };
             window.Show();
+        }
+
+        protected override void OnExit(ExitEventArgs e)
+        {
+            _service?.Dispose();
+            base.OnExit(e);
         }
     }
 
